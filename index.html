@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="myForm" action="" method="POST">
+        <label for="">Username</label>
+        <input id="username" type="text" name="username">
+        <label for="">Password</label>
+        <input id="password" type="text" name="password">
+        <input type="button" onclick="myFunction()" value="Submit form">
+    </form>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function myFunction() {
+            const form = document.getElementById("myForm");
+            const username = document.getElementById("username").value
+            const password = document.getElementById("password").value
+
+            console.log(username)
+            console.log(password)
+
+            var config = {
+                "headers": {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin":"*"
+                },
+                
+            };
+            axios.post('http://192.168.0.13:8000/security/api/v1/login/', {
+                username: username,
+                password: password
+            }, config)
+            .then(function (response) {
+                
+                console.log(response)
+                    
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            
+        }
+    </script>
+
+</body>
+</html>
