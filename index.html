@@ -16,7 +16,7 @@
         <input type="button" onclick="myFunction()" value="Submit form">
     </form>
 
-    <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function myFunction() {
             const form = document.getElementById("myForm");
@@ -25,6 +25,7 @@
 
             console.log(username)
             console.log(password)
+            console.log('llega aca')
 
             var config = {
                 "headers": {
@@ -33,7 +34,7 @@
                 },
                 
             };
-            axios.post('https://192.168.0.13:8000/security/api/v1/login/', {
+            axios.post('http://192.168.0.13:8000/security/api/v1/login/', {
                 username: username,
                 password: password
             }, config)
